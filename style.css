@@ -33,7 +33,7 @@ header a{
 .main{
     background-color: rgb(50, 50, 50);
     color: white;
-    height: 200vh;
+    height: 300vh;
     font-size:1.6rem;
     padding-top: min(3vh,30px);
     text-align: center;
