@@ -9,7 +9,7 @@ header{
     height: min(6vh,60px);
     background-color: dimgray;
     box-sizing: border-box;
-    font-size:1.3rem;
+    font-size:1.7rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -34,7 +34,7 @@ header a{
     background-color: rgb(50, 50, 50);
     color: white;
     height: 200vh;
-    font-size:1.2rem;
+    font-size:1.6rem;
     padding-top: min(3vh,30px);
     text-align: center;
 }
@@ -43,7 +43,7 @@ header a{
     width: fit-content;
     height: fit-content;
     padding:1.5rem;
-    font-size:1.8rem;
+    font-size:2rem;
     background-color: rgb(0, 190, 190);
     border-radius: 10vh;
     display: inline-block;
