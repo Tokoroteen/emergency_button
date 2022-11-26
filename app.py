@@ -6,7 +6,7 @@ SCENE_PLAY = 1 #プレー画面
 SCENE_GAMEOVER = 2 #ゲームオーバー画面
 
 BUTTON_X = 44 #ボタンのx軸
-BUTTON_Y = 110 #ボタンのy軸
+BUTTON_Y = 115 #ボタンのy軸
 
 peace_count = 0 #電車が事故せずに走ったフレーム数
 peaceful_time = 0 #電車が事故せずに走った時間
@@ -14,7 +14,7 @@ peaceful_time = 0 #電車が事故せずに走った時間
 SHINKSEN = 6 #新幹線が登場する時間
 HAYABUSA = 20 #はやぶさが登場する時間
 CHICK_FRAME_COUNT = 60 #ひよこが登場するフレームカウント数
-CHICKEN_TIME = 10 #ニワトリが登場する時間
+CHICKEN_TIME = 12 #ニワトリが登場する時間
 
 BLAST_START_RADIUS = 1
 BLAST_END_RADIUS = 8
@@ -164,7 +164,7 @@ class App:
         self.is_alive = True #事故の有無（Falseで事故有り）
 
         self.train = Train(0,40,1,40,10,10,2,'x') #電車のインスタンス化
-        self.train2 = Train(-25,80,13,43,21,6,6,'x') #新幹線のインスタンス化
+        self.train2 = Train(-25,84,13,43,21,6,6,'x') #新幹線のインスタンス化
         self.train3 = Train(10,-16,35,40,7,15,6,'y') #はやぶさのインスタンス化
         self.trains = [self.train,self.train2,self.train3] #電車のリスト
 
@@ -223,7 +223,7 @@ class App:
     '''update関数集'''
     def button_operation(self): #ボタン操作の関数（ボタンを押し続けているとself.button=True)
         if pyxel.btnp(pyxel.MOUSE_BUTTON_LEFT): #クリック
-            if BUTTON_X + 10 < pyxel.mouse_x < BUTTON_X + 21 and BUTTON_Y + 18 < pyxel.mouse_y < BUTTON_Y + 29: #ボタンの枠内
+            if BUTTON_X + 3 < pyxel.mouse_x < BUTTON_X + 29 and BUTTON_Y + 8 < pyxel.mouse_y < BUTTON_Y + 37: #ボタンの枠内
                 self.button = True
 
         if pyxel.btnr(pyxel.MOUSE_BUTTON_LEFT): #クリックが離されたとき
@@ -291,14 +291,14 @@ class App:
         if pyxel.btnp(pyxel.MOUSE_BUTTON_LEFT): #クリック
             if 0 <= pyxel.mouse_x <= 16 and 144 <= pyxel.mouse_y <= 160: #ボタンの枠内
                 #ツイート用のリンク
-                webbrowser.open(f'https://twitter.com/intent/tweet?text=%E7%B7%8A%E6%80%A5%E9%9D%9E%E5%B8%B8%E5%81%9C%E6%AD%A2%E3%83%9C%E3%82%BF%E3%83%B3%E3%82%B2%E3%83%BC%E3%83%A0%0A%E3%82%B9%E3%82%B3%E3%82%A2%E3%81%AF{self.final_score}%E3%81%A7%E3%81%97%E3%81%9F%EF%BC%81URL', new=2, autoraise=True)
+                webbrowser.open(f'https://twitter.com/intent/tweet?text=%E7%B7%8A%E6%80%A5%E9%9D%9E%E5%B8%B8%E5%81%9C%E6%AD%A2%E3%83%9C%E3%82%BF%E3%83%B3%E3%82%B2%E3%83%BC%E3%83%A0%0A%E3%82%B9%E3%82%B3%E3%82%A2%E3%81%AF{self.final_score}%E3%81%A7%E3%81%97%E3%81%9F%EF%BC%81URL', new=0, autoraise=True)
 
             if 104 <= pyxel.mouse_x <= 120 and 144 <= pyxel.mouse_y <= 160: #ボタンの枠内
-                webbrowser.open('https://www.buymeacoffee.com/tokoroteen', new=2, autoraise=True)
+                webbrowser.open('https://www.buymeacoffee.com/tokoroteen', new=0, autoraise=True)
 
     def restart_operation(self): #ゲームのリスタート操作の関数
         if pyxel.btnp(pyxel.MOUSE_BUTTON_LEFT): #クリック
-            if 42 <= pyxel.mouse_x <= 78 and 100 <= pyxel.mouse_y <= 105: #ボタンの枠内
+            if 42 <= pyxel.mouse_x <= 78 and 97 <= pyxel.mouse_y <= 108: #ボタンの枠内
                 self.scene = SCENE_PLAY #シーン選択
                 self.button = False #ボタンが押されているかどうかの判定
                 self.is_alive = True #事故の有無（Falseで事故有り）
