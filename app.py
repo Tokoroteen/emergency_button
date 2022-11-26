@@ -289,11 +289,16 @@ class App:
 
     def link_operation(self): #リンクに飛ぶための関数
         if pyxel.btnp(pyxel.MOUSE_BUTTON_LEFT): #クリック
-            if 0 <= pyxel.mouse_x <= 16 and 144 <= pyxel.mouse_y <= 160: #ボタンの枠内
+            if 1 <= pyxel.mouse_x <= 17 and 143 <= pyxel.mouse_y <= 159: #ボタンの枠内
                 #ツイート用のリンク
                 webbrowser.open(f'https://twitter.com/intent/tweet?text=%E7%B7%8A%E6%80%A5%E9%9D%9E%E5%B8%B8%E5%81%9C%E6%AD%A2%E3%83%9C%E3%82%BF%E3%83%B3%E3%82%B2%E3%83%BC%E3%83%A0%0A%E3%82%B9%E3%82%B3%E3%82%A2%E3%81%AF{self.final_score}%E3%81%A7%E3%81%97%E3%81%9F%EF%BC%81URL', new=0, autoraise=True)
 
-            if 104 <= pyxel.mouse_x <= 120 and 144 <= pyxel.mouse_y <= 160: #ボタンの枠内
+            #Home画面へのリンク
+            if 52 <= pyxel.mouse_x <= 68 and 143 <= pyxel.mouse_y <= 159: #ボタンの枠内
+                webbrowser.open('https://tokoroteen.github.io/emergency_button/', new=0, autoraise=True)
+
+            #buy me a coffeeのリンク
+            if 103 <= pyxel.mouse_x <= 119 and 143 <= pyxel.mouse_y <= 159: #ボタンの枠内
                 webbrowser.open('https://www.buymeacoffee.com/tokoroteen', new=0, autoraise=True)
 
     def restart_operation(self): #ゲームのリスタート操作の関数
@@ -384,10 +389,12 @@ class App:
         if pyxel.frame_count % 30 >= 10:
             pyxel.text(42, 100, '- REPLAY -', 7)
 
-        pyxel.blt(0, 144, 0, 0, 72, 16, 16) #Twitterの描画
+        pyxel.blt(1, 143, 0, 0, 72, 16, 16) #Twitterの描画
+
+        pyxel.blt(52, 143, 0, 0, 104, 16, 16) #ホームアイコンの描画
 
         # pyxel.text(16, 134, "I'd be happy to buy me", 7)
         # pyxel.text(41, 140, "a cup of coffee!", 7)
-        pyxel.blt(104, 144, 0, 0, 88, 16, 16) #コーヒーの描画
+        pyxel.blt(103, 143, 0, 0, 88, 16, 16) #コーヒーの描画
 
 App(120,160)
