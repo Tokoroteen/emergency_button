@@ -100,7 +100,6 @@ class Train:
                 else:
                     self.x = pyxel.rndi(BUTTON_X+32, pyxel.width-self.w) #ボタンよりも右の範囲の中でランダム
 
-
     def speed_down(self):
         self.speed = max(0, self.speed-1)
 
@@ -201,7 +200,7 @@ class App:
 
     def update_play_scene(self):
         self.button_operation() #ボタン操作
-        self.bgm_operation() #BGM操作の関数
+        self.bgm_operation() #BGMの操作
         self.siren_operation() #サイレンの操作
         self.hit_operation() #動物と電車が当たった時の操作
         self.blast_sound_operation() #爆発音の操作
@@ -230,8 +229,7 @@ class App:
             self.button = False
 
     def bgm_operation(self): #BGM操作の関数
-        if pyxel.play_pos(1) == None:
-            pyxel.play(1,[2,3],loop=True)
+        pyxel.play(0,2, loop=True)
 
     def siren_operation(self): #サイレン音の操作の関数
         if self.button:
@@ -240,7 +238,6 @@ class App:
     def blast_sound_operation(self): #爆発音の操作の関数
         if self.is_alive == False:
             pyxel.play(0,0) #爆発音を流す
-            pyxel.play(1,4) #鼻から牛乳〜
 
     def hit_operation(self): #動物と電車が当たった時の操作（当たったときに進行方向を反転するか、爆発する）の関数
         for animal in self.animals:
@@ -296,11 +293,11 @@ class App:
         if pyxel.btnp(pyxel.MOUSE_BUTTON_LEFT): #クリック
             if 1 <= pyxel.mouse_x <= 17 and 143 <= pyxel.mouse_y <= 159: #ボタンの枠内
                 #ツイート用のリンク
-                webbrowser.open_new(f'https://twitter.com/intent/tweet?text=%E7%B7%8A%E6%80%A5%E9%9D%9E%E5%B8%B8%E5%81%9C%E6%AD%A2%E3%83%9C%E3%82%BF%E3%83%B3%E3%82%B2%E3%83%BC%E3%83%A0%0A%E3%82%B9%E3%82%B3%E3%82%A2%E3%81%AF{self.final_score}%E3%81%A7%E3%81%97%E3%81%9F%EF%BC%81%0Ahttps://emergency-button.com/%0A%23%E9%9D%9E%E5%B8%B8%E5%81%9C%E6%AD%A2%E3%83%9C%E3%82%BF%E3%83%B3%E3%82%B2%E3%83%BC%E3%83%A0')
+                webbrowser.open(f'https://twitter.com/intent/tweet?text=%E7%B7%8A%E6%80%A5%E9%9D%9E%E5%B8%B8%E5%81%9C%E6%AD%A2%E3%83%9C%E3%82%BF%E3%83%B3%E3%82%B2%E3%83%BC%E3%83%A0%0A%E3%82%B9%E3%82%B3%E3%82%A2%E3%81%AF{self.final_score}%E3%81%A7%E3%81%97%E3%81%9F%EF%BC%81%0Ahttps://emergency-button.com/%0A%23%E9%9D%9E%E5%B8%B8%E5%81%9C%E6%AD%A2%E3%83%9C%E3%82%BF%E3%83%B3%E3%82%B2%E3%83%BC%E3%83%A0')
 
             #Home画面へのリンク
             if 52 <= pyxel.mouse_x <= 68 and 143 <= pyxel.mouse_y <= 159: #ボタンの枠内
-                webbrowser.open_new_tab('https://tokoroteen.github.io/emergency_button/')
+                webbrowser.open('https://emergency-button.com/')
 
             #buy me a coffeeのリンク
             if 103 <= pyxel.mouse_x <= 119 and 143 <= pyxel.mouse_y <= 159: #ボタンの枠内
